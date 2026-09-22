@@ -4,6 +4,11 @@ Public placeholder for the World Intelligence Model research institution.
 
 This repository is intentionally independent from the WIM reference implementation. It contains no product code, backend, API, authentication, or runtime integration.
 
+## Production
+
+- Fly application: `world-intelligence-model`
+- URL: https://world-intelligence-model.fly.dev
+
 ## Stack
 
 - Semantic HTML
@@ -47,4 +52,3 @@ The Fly application name is declared in `fly.toml`. Custom-domain DNS is intenti
     ├── governance/index.html
     └── license/index.html
 ```
-
