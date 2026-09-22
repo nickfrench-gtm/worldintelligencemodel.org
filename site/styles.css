@@ -140,21 +140,28 @@ main { flex: 1; }
   .site-footer { flex-direction: column; }
 }
 
-/* Keep the complete institutional index in one desktop viewport. */
-@media (min-width: 761px) and (min-height: 700px) {
-  body.home {
-    height: 100dvh;
-    overflow: hidden;
-  }
+/* Keep the complete institutional index within the homepage viewport. */
+body.home {
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.home .site-header,
+.home .site-footer {
+  flex: none;
+}
+
+.home main {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+@media (min-width: 761px) {
 
   .home .site-header {
     padding-block: 1.1rem;
-  }
-
-  .home main {
-    min-height: 0;
-    display: grid;
-    grid-template-rows: minmax(0, 1fr) auto;
   }
 
   .home .hero {
@@ -174,5 +181,60 @@ main { flex: 1; }
 
   .home .site-footer {
     padding-block: 0.9rem 1rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .home .site-header {
+    gap: 0.55rem;
+    padding-block: 0.7rem;
+  }
+
+  .home .wordmark { font-size: 0.95rem; }
+  .home .site-nav { gap: 0.2rem 0.75rem; }
+  .home .site-nav a { font-size: 0.7rem; line-height: 1.25; }
+
+  .home .hero {
+    align-content: center;
+    gap: 0.8rem;
+    min-height: 0;
+    padding-block: 0.75rem;
+  }
+
+  .home .hero h1 {
+    font-size: clamp(2.55rem, 13vw, 3.4rem);
+    line-height: 0.9;
+  }
+
+  .home .hero p {
+    font-size: clamp(0.78rem, 3.4vw, 0.92rem);
+    line-height: 1.35;
+  }
+
+  .home .index-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-bottom: 0.4rem;
+  }
+
+  .home .index-grid a,
+  .home .index-grid a:not(:nth-child(3n + 1)) {
+    min-height: 2.7rem;
+    align-items: center;
+    padding: 0.45rem 0.55rem 0.45rem 0;
+    border-left: 0;
+    font-size: 0.72rem;
+    line-height: 1.25;
+  }
+
+  .home .index-grid a:nth-child(even) {
+    padding-left: 0.55rem;
+    border-left: 1px solid var(--line);
+  }
+
+  .home .site-footer {
+    gap: 0.2rem 1rem;
+    padding-block: 0.55rem 0.65rem;
+    font-size: 0.68rem;
+    line-height: 1.35;
   }
 }
