@@ -32,7 +32,7 @@
         <p class="paper-subtitle">A Framework for Persistent, Evidence-Backed Machine Intelligence</p>
         <dl class="paper-metadata" aria-label="Publication metadata">
           <div><dt>Status</dt><dd>Draft — Not Yet Peer Reviewed</dd></div>
-          <div><dt>Version</dt><dd>0.3</dd></div>
+          <div><dt>Version</dt><dd>0.4</dd></div>
           <div><dt>Date</dt><dd><time datetime="2026-09-23">23 September 2026</time></dd></div>
         </dl>
         <p class="paper-question">How should AI learn from experience?</p>
@@ -274,19 +274,25 @@
               <li><strong>Transfer and generalization.</strong> Test which lessons remain useful across tasks, time periods, or Worlds and which must remain local.</li>
               <li><strong>Simulation research.</strong> Generate bounded hypotheses and stress cases only after a real-world validation path is defined.</li>
             </ol>
-            <p>Initial comparisons should hold the underlying reasoner fixed so that a measured difference can be attributed more clearly to the surrounding system rather than to a model change. That methodological choice remains subject to protocol approval and external citation review. Later experiments can test whether any effect survives a change in reasoner.</p>
+            <p>Initial comparisons should hold the underlying reasoner fixed so that a measured difference can be attributed more clearly to the surrounding system rather than to a model change. The frozen EXP-0001 protocol applies this control; its methodological rationale still requires external citation review. Later experiments can test whether any effect survives a change in reasoner.</p>
             <p>Every material experiment requires a frozen protocol before final results are inspected. The protocol must declare its question, hypotheses, data and rights basis, temporal cutoff, baselines, metrics, failure criteria, confounders, code and model versions, and prohibited information. Failed, null, contradicted, and leakage-invalidated results remain in the record.</p>
           </section>
 
           <section class="paper-section current-status-section" id="current-status">
             <p class="section-number">12</p>
             <h2>Current status</h2>
-            <p class="status-as-of">As of <time datetime="2026-09-22">22 September 2026</time></p>
+            <p class="status-as-of">As of <time datetime="2026-09-23">23 September 2026</time></p>
             <p class="claim-class"><span>Engineering evidence — not scientific validation</span></p>
             <p>WIM Specification v1.0 and the Trust Invariants have been adopted. A reference implementation exists and has substantial internal engineering verification, including deterministic fixtures, build and package checks, and a remotely retrievable review checkpoint.</p>
             <p>The implementation has not completed its assurance process. Fresh Red Team Review 03 ended <strong>incomplete, with no determination</strong>, when its execution environment stopped before the adversarial phase was completed. It was neither a pass nor a fail. Independent audit and candidate certification therefore remain closed.</p>
             <p>A bounded private-World integration dogfood passed its exercised local engineering acceptance checks after recorded corrections. This is engineering evidence only; it does not change the implementation’s assurance status, establish research readiness, or execute the first proposed experiment.</p>
-            <p>A first experiment protocol has been drafted, but it is not approved, preregistered, frozen, or executed. Its proposed data source, reasoner, manifests, rights review, and research-readiness gate remain unresolved. The draft contains no result.</p>
+            <p>The first experiment protocol, EXP-0001/1.0-rc3, is owner-approved, frozen, content-addressed, attested, and independently reproduced. The freeze authorizes neither dataset import nor experiment execution.</p>
+            <div class="qualification-record" aria-label="EXP-0001 dataset qualification determination">
+              <p class="claim-class"><span>Dataset qualification — negative determination</span></p>
+              <p>On 23 September 2026, the first qualification of an exact public Jira archive against the frozen EXP-0001 protocol returned <strong>NOT QUALIFIED</strong>. The artifact passed identity and archive-integrity checks and contained the required raw SPARK cohort counts. It could not establish the historical status-category, public-availability-time, deletion, and backfill semantics required for valid reconstruction under the frozen protocol.</p>
+              <p>The protocol and source were not modified after inspection. Current status mappings were not substituted for missing historical evidence, and the endpoint was not weakened to accommodate the archive. Adapter work, import, model execution, prediction, scoring, and EXP-0001 execution therefore remained closed.</p>
+            </div>
+            <p>This is a negative dataset-qualification determination, not a failed performance experiment or an empirical result about WIM. It records that the available source could not support the preregistered historical reconstruction required by the study. Preserving that determination before execution is part of the research program’s methodological discipline.</p>
             <p>No serious real-world experiment has established WIM’s central performance hypotheses. The existing synthetic benchmark is an engineering harness and is not evidence of real-world effectiveness. There is currently no WIM v1.0 scientific result to announce.</p>
           </section>
 
