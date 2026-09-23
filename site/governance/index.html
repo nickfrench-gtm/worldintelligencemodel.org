@@ -1,1 +1,93 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5f2"><title>Governance — World Intelligence Model</title><link rel="stylesheet" href="/styles.css"></head><body><header class="site-header"><a class="wordmark" href="/">World Intelligence Model</a><nav class="site-nav" aria-label="Primary"><a href="/mission/">Mission</a><a href="/research-roadmap/">Research Roadmap</a><a href="/publications/">Publications</a><a href="/benchmarks/">Benchmarks</a><a href="/experiment-registry/">Experiment Registry</a><a href="/governance/" aria-current="page">Governance</a><a href="https://github.com/nickfrench-gtm/wim">GitHub</a></nav></header><main class="page"><h1>Governance</h1><div class="page-copy"><p>Coming Soon</p><a href="/">Return home</a></div></main><footer class="site-footer"><div class="footer-links"><a href="https://github.com/nickfrench-gtm/worldintelligencemodel.org">Repository</a><a href="/research-roadmap/">Research</a><a href="/license/">License</a></div><span>© 2026 World Intelligence Model</span></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="How authority, review, and research integrity are governed within the World Intelligence Model program.">
+  <meta name="theme-color" content="#f5f5f2">
+  <title>Governance — World Intelligence Model</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="/">World Intelligence Model</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/mission/">Mission</a><a href="/research-roadmap/">Research Roadmap</a><a href="/publications/">Publications</a><a href="/benchmarks/">Benchmarks</a><a href="/experiment-registry/">Experiment Registry</a><a href="/governance/" aria-current="page">Governance</a>
+    </nav>
+  </header>
+  <main class="publication governance-publication">
+    <header class="publication-header">
+      <p class="publication-label">Governance</p>
+      <h1>Clear authority. Accountable decisions.</h1>
+      <p class="publication-lede">WIM's governance defines who can change the system, what evidence supports a claim, and how corrections become part of the record.</p>
+    </header>
+
+    <article class="publication-body publication-body-wide">
+      <aside class="status-note" aria-labelledby="assurance-status-title">
+        <div>
+          <p class="note-label" id="assurance-status-title">Current assurance status</p>
+          <p>The governance framework has been adopted. The current implementation has not passed its assurance gate, so adoption must not be read as demonstrated compliance.</p>
+        </div>
+        <p class="review-date">Reviewed <time datetime="2026-09-22">22 September 2026</time></p>
+      </aside>
+
+      <section>
+        <div class="section-heading">
+          <h2>Who defines WIM?</h2>
+          <p>The Mission sets the program's purpose. The WIM Specification defines the system's concepts and behavior. Implementations are expected to follow it; they cannot redefine WIM.</p>
+        </div>
+        <dl class="responsibility-list">
+          <div><dt>Mission</dt><dd>Sets the purpose and long-term commitments of the research program.</dd></div>
+          <div><dt>Specification</dt><dd>Defines WIM's concepts and how they relate. Implementations are expected to follow it.</dd></div>
+          <div><dt>Trust Invariants</dt><dd>Set the trust requirements an implementation must satisfy, including separation of scope, evidence integrity, correct treatment of time, and preservation of history.</dd></div>
+          <div><dt>Implementation</dt><dd>Turns the Specification into software and produces reproducible evidence about its behavior.</dd></div>
+          <div><dt>Research</dt><dd>Tests whether WIM's ideas hold up in defined tasks and reports results, uncertainty, failures, and limits.</dd></div>
+          <div><dt>Publication</dt><dd>Shares research when its evidence, method, and limits are ready for public review.</dd></div>
+        </dl>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <h2>How are changes reviewed?</h2>
+          <p>Implementation evidence moves through distinct forms of review. Each stage asks a different question; passing one does not replace the next.</p>
+        </div>
+        <ol class="review-process" aria-label="Implementation review and release process">
+          <li><strong>Implementation</strong><span>Build within the approved specification.</span></li>
+          <li><strong>Verification</strong><span>Check required behavior and reproducibility.</span></li>
+          <li><strong>Red Team</strong><span>Attempt to falsify trust-boundary claims.</span></li>
+          <li><strong>Independent audit</strong><span>Assess the exact candidate and its evidence.</span></li>
+          <li><strong>Candidate consideration</strong><span>Review whether every required gate has passed.</span></li>
+          <li><strong>Release</strong><span>Requires every review gate to pass.</span></li>
+        </ol>
+        <p class="process-note"><strong>When review finds a failure:</strong> bounded remediation is followed by a fresh Red Team review before independent audit can resume. The earlier failure remains part of the record.</p>
+      </section>
+
+      <section>
+        <h2>What does verification establish?</h2>
+        <p>Tests and reproducible builds show whether software behaves as specified. Red Team review tries to break its trust claims. Independent audit then evaluates the exact candidate and its evidence before release.</p>
+        <p>Software correctness and scientific usefulness are different questions. Conformance evidence cannot establish that WIM improves reasoning, decisions, or learning.</p>
+      </section>
+
+      <section>
+        <h2>How are research claims evaluated?</h2>
+        <p>Research claims are judged by their methods and evidence, not by whether the code shipped. Results are reported at the level they have reached, with uncertainty and limits intact.</p>
+        <p>Failed, null, contradicted, and invalidated work stays in the record. Unknown is preferred over unsupported certainty.</p>
+      </section>
+
+      <section>
+        <h2>How are errors recorded?</h2>
+        <p>Corrections add to history rather than replacing it. Superseded decisions point to what replaced them, and failed reviews remain visible.</p>
+        <p>WIM maintains models of reality; it does not define reality. Evidence and outcomes may support, narrow, contradict, or leave a conclusion unresolved. Reality remains the final authority.</p>
+      </section>
+
+      <footer class="publication-meta">
+        <nav class="publication-next" aria-label="Continue reading">
+          <span>Continue</span>
+          <span class="next-links"><a href="/mission/">Mission</a><a href="/research-roadmap/">Research Roadmap <span aria-hidden="true">→</span></a></span>
+        </nav>
+      </footer>
+    </article>
+  </main>
+  <footer class="site-footer"><div class="footer-links"><a href="/mission/">Mission</a><a href="/research-roadmap/">Research</a><a href="/license/">License</a></div><span>© 2026 World Intelligence Model</span></footer>
+</body>
+</html>
