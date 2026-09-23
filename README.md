@@ -34,6 +34,20 @@ flyctl deploy
 
 The Fly application name is declared in `fly.toml`. Custom-domain DNS is intentionally not configured in this session.
 
+## Research release structure
+
+The public research record is designed to grow as an alternating sequence:
+
+```text
+Working Paper 001 → EXP-0001 → Working Paper 002 → EXP-0002 → Working Paper 003 → …
+```
+
+- Working papers use `/publications/working-paper-NNN/`.
+- Public experiment records use `/experiment-registry/exp-NNNN/`.
+- A future identifier may appear as an explicitly unreleased slot, but no route is created until the underlying artifact is approved for publication.
+- Working papers define architecture, hypotheses, or results. Experiment records publish the corresponding protocol, dated status, and outcome record.
+- Released records are appended; existing public identifiers are not reused for unrelated work.
+
 ## Structure
 
 ```text

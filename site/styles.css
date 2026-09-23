@@ -593,6 +593,127 @@ body:has(.publication) .site-footer {
 .publication-entry dt { color: var(--muted); }
 .publication-entry dd { margin: 0; }
 
+.release-record,
+.registry-method,
+.registry-links {
+  margin-top: clamp(4rem, 9vw, 7rem);
+}
+
+.release-record-heading {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(2rem, 7vw, 6rem);
+  align-items: end;
+  margin-bottom: 2rem;
+}
+
+.release-record-heading h2,
+.registry-empty h2,
+.registry-method h2 {
+  max-width: 18ch;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.75rem, 3.2vw, 2.4rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+.release-record-heading p,
+.registry-empty > p {
+  max-width: 54ch;
+  margin: 0;
+  color: var(--muted);
+}
+
+.release-sequence {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.release-sequence li {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.7fr) minmax(0, 1.15fr) minmax(7rem, 0.45fr);
+  gap: 1.5rem;
+  align-items: baseline;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.release-sequence .release-id {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.08rem;
+}
+
+.release-sequence .release-status {
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-align: right;
+}
+
+.release-sequence .is-released .release-id,
+.release-sequence .is-released .release-status { color: var(--accent); }
+.release-sequence a { color: var(--ink); text-decoration-thickness: 1px; }
+.release-continuation { position: relative; }
+.release-continuation::after {
+  position: absolute;
+  bottom: -1.8rem;
+  left: 0;
+  color: var(--muted);
+  content: "…";
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+}
+
+.release-registry-link { margin: 3rem 0 0; }
+.release-registry-link a { color: var(--ink); }
+
+.registry-empty {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2rem, 7vw, 6rem);
+  padding-block: 2rem;
+  border-block: 1px solid var(--line);
+}
+
+.registry-empty .entry-type {
+  margin: 0 0 1rem;
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.registry-method dl { margin: 2rem 0 0; border-top: 1px solid var(--line); }
+.registry-method dl div {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.55fr) minmax(0, 1.45fr);
+  gap: 1.5rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.registry-method dt { font-family: Georgia, "Times New Roman", serif; font-size: 1.08rem; }
+.registry-method dd { margin: 0; color: var(--muted); }
+
+.registry-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-block: 1px solid var(--line);
+}
+.registry-links a {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1.25rem 0;
+  color: var(--ink);
+  text-decoration: none;
+}
+.registry-links a + a { padding-left: 1.5rem; border-left: 1px solid var(--line); }
+.registry-links span { color: var(--muted); font-size: 0.8rem; }
+.registry-links strong { font-family: Georgia, "Times New Roman", serif; font-size: 1.18rem; font-weight: 400; }
+
 .paper-publication {
   padding-block: clamp(3.4rem, 6vw, 5.75rem) clamp(5rem, 9vw, 8rem);
 }
@@ -1046,6 +1167,11 @@ body:has(.publication) .site-footer {
 
 @media (max-width: 760px) {
   .publication-entry,
+  .release-record-heading,
+  .release-sequence li,
+  .registry-empty,
+  .registry-method dl div,
+  .registry-links,
   .evidence-status,
   .evidence-ledger div,
   .term-grid div,
@@ -1055,6 +1181,9 @@ body:has(.publication) .site-footer {
   .hypothesis-list li { grid-template-columns: 1fr; }
 
   .paper-publication { padding-block: 2.75rem 4.5rem; }
+  .release-sequence li { gap: 0.35rem; }
+  .release-sequence .release-status { margin-top: 0.35rem; text-align: left; }
+  .registry-links a + a { padding-left: 0; border-top: 1px solid var(--line); border-left: 0; }
   .paper-header h1 { font-size: clamp(3rem, 15vw, 4.25rem); }
   .paper-subtitle { font-size: 1.4rem; }
   .paper-metadata { grid-template-columns: 1fr; }
