@@ -250,12 +250,12 @@ body.home {
 }
 
 .publication {
-  padding-block: clamp(3.4rem, 6vw, 5.75rem) clamp(4.5rem, 9vw, 7rem);
+  padding-block: clamp(2.5rem, 4vw, 4rem) clamp(4.5rem, 9vw, 7rem);
 }
 
 .publication-header {
-  max-width: 58rem;
-  padding-bottom: clamp(2.7rem, 5.25vw, 4.15rem);
+  max-width: 54rem;
+  padding-bottom: clamp(2.2rem, 3.5vw, 3rem);
   border-bottom: 1px solid var(--line);
 }
 
@@ -291,7 +291,7 @@ body.home {
 
 .publication-body {
   width: min(100%, 50.5rem);
-  margin-inline: auto;
+  margin-inline: 0 auto;
   font-size: 1.04rem;
   line-height: 1.68;
 }
