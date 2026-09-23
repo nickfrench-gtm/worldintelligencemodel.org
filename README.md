@@ -47,6 +47,7 @@ The Fly application name is declared in `fly.toml`. Custom-domain DNS is intenti
     ├── mission/index.html
     ├── research-roadmap/index.html
     ├── publications/index.html
+    ├── publications/working-paper-001/index.html
     ├── benchmarks/index.html
     ├── experiment-registry/index.html
     ├── governance/index.html

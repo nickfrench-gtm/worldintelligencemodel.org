@@ -1107,10 +1107,11 @@ body:has(.publication) .site-footer {
   .system-map-figure,
   .term-grid,
   .time-grid,
-  .learning-sequence,
-  .program-sequence,
-  .hypothesis-list,
   .evidence-ledger { break-inside: avoid-page; }
+  .learning-sequence li,
+  .program-sequence li,
+  .hypothesis-list li,
+  .citation-review-note { break-inside: avoid-page; }
   .related-work-blocker { margin-block: 0.28in; padding: 0.2in; }
   .motivation-scenario { break-inside: avoid-page; }
   .section-number { break-after: avoid-page; }

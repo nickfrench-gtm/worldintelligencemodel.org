@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Draft WIM Working Paper 001: a framework for persistent, evidence-backed machine intelligence.">
+  <meta name="theme-color" content="#f5f5f2">
+  <title>Working Paper 001 — World Intelligence Model</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="working-paper">
+  <!--
+    THESIS: The central research problem is whether machine intelligence should maintain an evidence-backed account of changing reality rather than repeatedly reconstruct context task by task.
+    OWN-WORLD: Warm paper, serif argument, sans-serif evidence metadata, thin rules, and muted green reserved for navigation and epistemic labels.
+    STORY: The reader first recognizes the reconstruction problem, then sees the reality-to-revision loop, learns only the concepts needed to follow it, and reaches hypotheses, tests, and unresolved questions.
+    FIRST VIEWPORT: Formal paper identity and title lead; version metadata and the status-of-evidence ledger follow before any substantive claim.
+    FORM: Institutional working paper inside the established site system; precise owner brief, no concept lottery required. Seed key: wp001-established-read.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and the durable design record.
+  -->
+  <header class="site-header">
+    <a class="wordmark" href="/">World Intelligence Model</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/mission/">Mission</a><a href="/research-roadmap/">Research Roadmap</a><a href="/publications/" aria-current="page">Publications</a><a href="/benchmarks/">Benchmarks</a><a href="/experiment-registry/">Experiment Registry</a><a href="/governance/">Governance</a>
+    </nav>
+  </header>
+
+  <main class="paper-publication">
+    <article>
+      <header class="paper-header">
+        <p class="paper-series">World Intelligence Model — Working Paper 001</p>
+        <h1>The World Intelligence Model</h1>
+        <p class="paper-subtitle">A Framework for Persistent, Evidence-Backed Machine Intelligence</p>
+        <dl class="paper-metadata" aria-label="Publication metadata">
+          <div><dt>Status</dt><dd>Draft — Not Yet Peer Reviewed</dd></div>
+          <div><dt>Version</dt><dd>0.3</dd></div>
+          <div><dt>Date</dt><dd><time datetime="2026-09-23">23 September 2026</time></dd></div>
+        </dl>
+        <p class="paper-question">How should AI learn from experience?</p>
+      </header>
+
+      <aside class="evidence-status" aria-labelledby="evidence-status-title">
+        <div class="evidence-status-intro">
+          <h2 id="evidence-status-title">Status of evidence</h2>
+          <p>This paper presents the WIM framework and its research program. It does not report validated performance improvements or a completed scientific experiment.</p>
+        </div>
+        <dl class="evidence-ledger">
+          <div><dt>Definition / design</dt><dd>Specification v1.0 and the Trust Invariants are adopted.</dd></div>
+          <div><dt>Hypothesis</dt><dd>Persistent, evidence-backed state may improve defined future work under some conditions.</dd></div>
+          <div><dt>Engineering evidence</dt><dd>A reference implementation checkpoint exists with substantial internal verification; assurance remains incomplete.</dd></div>
+          <div><dt>Empirical finding</dt><dd>None yet for WIM’s central performance hypotheses.</dd></div>
+        </dl>
+      </aside>
+
+      <div class="paper-layout">
+        <nav class="paper-toc" aria-label="Paper contents">
+          <p>Contents</p>
+          <ol>
+            <li><a href="#abstract">Abstract</a></li>
+            <li><a href="#transient-intelligence">The problem of transient intelligence</a></li>
+            <li><a href="#maintained-world">A different unit of analysis</a></li>
+            <li><a href="#definition">Maintaining a World</a></li>
+            <li><a href="#evidence-before-belief">Evidence, belief, and revision</a></li>
+            <li><a href="#learning-from-experience">Learning from experience</a></li>
+            <li><a href="#time">Time and changing reality</a></li>
+            <li><a href="#human-authority">Human authority and machine judgment</a></li>
+            <li><a href="#trust">Trust as an architectural property</a></li>
+            <li><a href="#non-goals">Boundaries of the framework</a></li>
+            <li><a href="#related-work">Related-work requirement</a></li>
+            <li><a href="#hypotheses">The research hypotheses</a></li>
+            <li><a href="#experimental-program">Experimental program</a></li>
+            <li><a href="#current-status">Current status</a></li>
+            <li><a href="#open-questions">Open questions</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+          </ol>
+        </nav>
+
+        <div class="paper-body">
+          <section class="paper-section paper-abstract" id="abstract">
+            <h2>Abstract</h2>
+            <p>Contemporary AI systems can reason over supplied context, yet useful experience may be lost between tasks, detached from its provenance, compressed without its uncertainty, or reconstructed differently after the underlying world has changed. The World Intelligence Model (WIM) is a research framework for maintaining persistent, evidence-backed, temporally versioned representations of bounded worlds. It separates a durable World from replaceable reasoning models; records observations, evidence, beliefs, decisions, actions, and outcomes as distinct concepts; and permits reusable lessons only through explicit validation and revision policies.</p>
+            <p>WIM does not claim that persistence is always beneficial, that its current implementation is scientifically validated, or that a maintained World is an authority over reality. Its central hypothesis is narrower: under defined conditions, evidence-backed state and validated experience may improve future work relative to appropriate stateless or snapshot baselines. The research program therefore treats implementation conformance, reproducibility, adversarial review, empirical evaluation, and independent replication as separate questions. This paper defines the framework, states its present evidence limits, and outlines the experiments required to determine whether the added complexity is justified.</p>
+          </section>
+
+          <section class="paper-section" id="transient-intelligence">
+            <p class="section-number">1</p>
+            <h2>The problem of transient intelligence</h2>
+            <p>Many AI-assisted tasks begin by assembling a temporary view of the situation: instructions, retrieved documents, conversation history, tool output, or a summary of earlier work. A capable reasoner may use that view well. The next task, however, often begins the assembly again. It must recover what was known, why it was believed, which decision followed, and what happened afterward. <sup class="citation-needed"><a href="#citation-review">citation review</a></sup></p>
+            <div class="motivation-scenario" aria-label="Illustrative reconstruction problem">
+              <p>A technical team makes a decision from several sources. The decision appears in a plan or implementation. The supporting discussion remains elsewhere. Weeks later, an outcome arrives in another record. When the subject returns, a person or AI system can find fragments of the history but must reconstruct the relationships among them.</p>
+              <p>The artifacts may survive while the reasoning chain does not: which evidence was current, which source contradicted it, who held authority, what the decision attempted, and whether reality later supported the original judgment.</p>
+            </div>
+            <p>This reconstruction problem is larger than forgetting text. A conclusion can become detached from its provenance. Copies of one origin can appear to be independent support. Completion can be mistaken for an external outcome. A useful rule can remain in circulation after the conditions that supported it have changed.</p>
+            <p>Documents, issue records, logs, conversations, and retrieval systems each preserve useful material. The unresolved question is how to preserve the relationships among evidence, state, decisions, outcomes, and later corrections across tasks and across time. <sup class="citation-needed"><a href="#citation-review">citation review</a></sup></p>
+            <p>WIM begins from that continuity problem. It asks whether a system can maintain a bounded, challengeable account of a changing world so that later reasoning starts from inspectable history rather than an untraceable reconstruction.</p>
+          </section>
+
+          <section class="paper-section" id="maintained-world">
+            <p class="section-number">2</p>
+            <h2>A different unit of analysis</h2>
+            <p>A question-answering system can treat the exchange as its primary unit: a question is combined with context, a model reasons over that context, and an answer is produced. WIM retains the reasoner but places it inside a longer sequence whose subject is the changing world rather than the exchange alone.</p>
+            <figure class="research-loop-figure" aria-labelledby="research-loop-title research-loop-caption">
+              <figcaption>
+                <span id="research-loop-title">Figure 1 · The WIM research loop</span>
+                <strong id="research-loop-caption">Reasoning is one stage in a maintained history that begins with reality and returns revision to the World.</strong>
+              </figcaption>
+              <ol class="research-loop" aria-label="Reality to updated World sequence">
+                <li><span>External authority</span><strong>Reality</strong></li>
+                <li><span>Recorded event</span><strong>Observation</strong></li>
+                <li><span>Governed use</span><strong>Evidence</strong></li>
+                <li><span>Maintained state</span><strong>World</strong></li>
+                <li><span>Replaceable component</span><strong>Reasoning</strong></li>
+                <li><span>Work episode</span><strong>Decision / Action</strong></li>
+                <li><span>Later result</span><strong>Outcome</strong></li>
+                <li><span>Evidence under method</span><strong>Validation</strong></li>
+                <li><span>Preserved correction</span><strong>Revision</strong></li>
+                <li><span>Reconstructed state</span><strong>Updated World</strong></li>
+              </ol>
+            </figure>
+            <p>The shift is architectural. Reality is observed through identified sources. Observations become evidence only under a declared method. Accepted history supports a reconstructable World. A replaceable reasoner receives bounded context from that World, while decisions and authority remain explicit. Later evidence resolves outcomes and can revise belief, state, or the eligibility of a lesson.</p>
+            <p>The maintained artifact is therefore the governed history from which present state can be reconstructed and challenged. Whether that change of unit improves future work remains an empirical question.</p>
+          </section>
+
+          <section class="paper-section" id="definition">
+            <p class="section-number">3</p>
+            <h2>Maintaining a World</h2>
+            <p class="claim-class"><span>Definition / design</span></p>
+            <blockquote class="definition-block">
+              <p>WIM is an architecture for maintaining persistent, evidence-backed, temporally versioned representations of bounded worlds.</p>
+            </blockquote>
+            <p>A <strong>World</strong> is a governed boundary with identity, scope, policy, and append-only event history. It may represent an organization, product, project, system, or another bounded subject. A <strong>WorldState</strong> is the reconstructable view of that history at a declared version or cutoff. Corrections add linked events, allowing the current view to change while preserving the earlier record.</p>
+            <p>For a particular objective, WIM compiles the smallest relevant evidence-backed context from the World. Receipts preserve what was supplied before work, what was attempted, and how later evidence resolved—or left unresolved—the episode.</p>
+            <figure class="system-map-figure" aria-labelledby="system-map-title system-map-caption">
+              <figcaption>
+                <span id="system-map-title">Figure 2 · System roles and authority</span>
+                <strong id="system-map-caption">The World persists outside the reasoner; outcomes return through validation and revision.</strong>
+              </figcaption>
+              <div class="system-map" role="img" aria-label="Reality and sources produce observations and evidence for a maintained World. A context compiler supplies a replaceable reasoner. Decisions and actions produce outcomes that validation returns as revisions to the World.">
+                <div class="system-stage system-stage-reality"><small>External authority</small><strong>Reality</strong><span>Sources · Observations · Evidence</span></div>
+                <span class="system-arrow" aria-hidden="true">→</span>
+                <div class="system-stage system-stage-world"><small>Persistent boundary</small><strong>Maintained World</strong><span>History · State · Beliefs · Lessons</span></div>
+                <span class="system-arrow" aria-hidden="true">→</span>
+                <div class="system-stage"><small>Bounded projection</small><strong>Context Compiler</strong><span>Context + receipt</span></div>
+                <span class="system-arrow" aria-hidden="true">→</span>
+                <div class="system-stage system-stage-reasoner"><small>Replaceable component</small><strong>Reasoner</strong><span>Judgment · Proposal</span></div>
+                <span class="system-arrow" aria-hidden="true">→</span>
+                <div class="system-stage"><small>Explicit authority</small><strong>Decision / Action</strong><span>Recorded work episode</span></div>
+              </div>
+              <div class="system-return">
+                <strong>Outcome → Validation → Revision</strong>
+                <span>Accepted change returns to the maintained World; history remains available for reconstruction.</span>
+              </div>
+            </figure>
+            <p>The reasoning model remains important, but canonical state, receipts, and authority remain outside it. This separation is a design property. It has not yet demonstrated a performance advantage.</p>
+            <p class="claim-class"><span>Design hypothesis — not established</span></p>
+            <blockquote class="principle-block">
+              <p>The accumulated World belongs to the system, not to the particular reasoning model currently operating over it.</p>
+            </blockquote>
+            <p>This hypothesis is stronger than replaceable model plumbing. It proposes that governed history can remain interpretable and useful when the active reasoner changes. Whether that continuity survives a change in model—and whether it improves any defined task—requires direct comparison.</p>
+          </section>
+
+          <section class="paper-section" id="evidence-before-belief">
+            <p class="section-number">4</p>
+            <h2>Evidence, belief, and revision</h2>
+            <p>The framework separates the record of what a source produced from the system’s use of that record and from its current stance. This makes the route from source material to current belief inspectable without treating any one record as self-validating.</p>
+            <dl class="term-grid">
+              <div><dt>Observation</dt><dd>An immutable record that an identified Source reported, emitted, or exhibited something under recorded conditions.</dd></div>
+              <div><dt>Evidence</dt><dd>A governed use of one or more observations, or prior evidence, in relation to a target under a stated method.</dd></div>
+              <div><dt>Belief</dt><dd>A World’s versioned stance toward a Proposition, with supporting and contradicting evidence, method, confidence, and an as-of cutoff.</dd></div>
+              <div><dt>Outcome and revision</dt><dd>Later evidence resolves an experience within stated limits and may support, narrow, contradict, supersede, or revoke an earlier stance.</dd></div>
+            </dl>
+            <p>A Proposition names content capable of being true or false. A Claim records who asserted that content within a scope and time. These distinctions matter, but they serve one larger purpose: preserving the difference between source material, support, and the World’s own versioned stance. Confidence is a method-scoped judgment of support rather than a declaration of truth.</p>
+            <p>Provenance follows records through source identity, custody, transformation, method, and version. Evidence lineage links derived material back to its inputs. The graph must remain acyclic even when general relationships in the World are not.</p>
+            <p>Independence is therefore a provenance question. Repeated text, mirrors, forks, syndicated reports, and model paraphrases may share one upstream origin. Copies retain that shared lineage rather than becoming independent corroboration through relabeling. The present implementation’s enforcement of this rule is engineering evidence; its effect on empirical judgment remains a research question.</p>
+          </section>
+
+          <section class="paper-section" id="learning-from-experience">
+            <p class="section-number">5</p>
+            <h2>Learning from experience</h2>
+            <p>Within WIM, <em>learning</em> means an inspectable change produced by later observations and outcome evidence: a belief changes, a prediction resolves, or a lesson moves through a governed lifecycle. Retrieval, agreement, completion, and simulation remain separate events until reality supplies admissible evidence.</p>
+            <ol class="learning-sequence">
+              <li><strong>Context</strong><span>A bounded view of current state, evidence, constraints, contradictions, and applicable lessons is recorded before work.</span></li>
+              <li><strong>Judgment and decision</strong><span>A reasoner or actor forms a judgment; the deciding actor and authority remain explicit.</span></li>
+              <li><strong>Action and experience</strong><span>The attempted intervention and work episode are recorded without treating completion as an external outcome.</span></li>
+              <li><strong>Outcome and validation</strong><span>Later evidence may resolve what happened under an identified method and authority.</span></li>
+              <li><strong>Revision</strong><span>The result may support, contradict, narrow, revise, reject, supersede, or revoke an earlier belief or lesson.</span></li>
+            </ol>
+            <p>A <strong>Lesson</strong> is a scoped, actionable generalization that carries its conditions, exclusions, evidence, contradictions, and lifecycle history. Candidate and Durable identify governed lifecycle states. Durable means that one version is eligible for reuse within its scope, while later evidence can still narrow, supersede, or revoke it.</p>
+            <p>History remains visible when current belief changes. A corrected belief, rejected lesson, or revoked validation adds a new record linked to what it changed. This preserves the conditions under which an earlier decision was made and allows later readers to reconstruct the sequence.</p>
+          </section>
+
+          <section class="paper-section" id="time">
+            <p class="section-number">6</p>
+            <h2>Time and changing reality</h2>
+            <p>A system that reasons about changing worlds needs more than one timestamp. WIM distinguishes when content is claimed to hold in the represented world, when an event occurred or was observed, when WIM received the material, and when the immutable record entered canonical history.</p>
+            <dl class="time-grid">
+              <div><dt>Valid time</dt><dd>When the content is claimed to hold in the represented world.</dd></div>
+              <div><dt>Observed or event time</dt><dd>When the source event occurred or became observable.</dd></div>
+              <div><dt>Received time</dt><dd>When WIM obtained the material.</dd></div>
+              <div><dt>Recorded time</dt><dd>When the record entered append-only history.</dd></div>
+            </dl>
+            <p>Each time answers a different question. A correction received today may describe a state that ended months ago. A document may exist at a historical cutoff but become available to the evaluated system only later. Unknown time remains recorded as unknown.</p>
+            <p>Historical reconstruction therefore applies both a represented-time cutoff and an information-availability cutoff. Honest historical evaluation limits reasoning to what could have been known at the chosen point, excluding later fixes, labels, resolutions, and retrospective explanations.</p>
+          </section>
+
+          <section class="paper-section" id="human-authority">
+            <p class="section-number">7</p>
+            <h2>Human authority and machine judgment</h2>
+            <p>A reasoner produces judgments and proposals. Canonical acceptance requires explicit authority, scope, and supporting evidence rather than model confidence or plausible language alone.</p>
+            <p>WIM distinguishes a <strong>Judgment</strong>, which is a reasoned conclusion, from a <strong>Decision</strong>, which is an actor’s recorded selection among alternatives under known context and constraints. A recommendation may inform that selection while the deciding actor and authority remain visible.</p>
+            <blockquote class="principle-block">
+              <p>WIM maintains models of reality; it does not define reality.</p>
+            </blockquote>
+            <p>Human authority governs consequential decisions, system boundaries, publication, and accepted validation methods. Empirical correctness remains subject to evidence. Reality can contradict both human and machine judgment.</p>
+          </section>
+
+          <section class="paper-section" id="trust">
+            <p class="section-number">8</p>
+            <h2>Trust as an architectural property</h2>
+            <p class="claim-class"><span>Definition / design</span></p>
+            <p>Trust Invariants translate the Specification into implementation-independent conditions. Candidate status requires evidence that an implementation enforces them across programming language, storage technology, optimization, model changes, and refactoring. Adoption of the invariants establishes the standard; it does not certify the present implementation.</p>
+            <ul class="principle-list">
+              <li>Private records remain confined to their authorized tenant and World.</li>
+              <li>Canonical history and temporal reconstruction remain authoritative over caches or caller-supplied projections.</li>
+              <li>Evidence admissibility, independence, and validation derive from provenance and authorized method.</li>
+              <li>Lesson promotion remains governed, evidence-complete, scoped, and revocable.</li>
+              <li>Governance claims remain bounded by evidence for the exact artifact.</li>
+            </ul>
+            <p>The adopted Trust Invariants contain the complete normative set. Assurance then asks distinct questions: internal verification checks intended behavior and known contracts; Red Team review attempts to falsify trust claims; reproducibility reconstructs the exact artifact and its behavior; and independent audit evaluates the candidate and both bodies of evidence. Scientific usefulness requires separate empirical work.</p>
+          </section>
+
+          <section class="paper-section" id="non-goals">
+            <p class="section-number">9</p>
+            <h2>Boundaries of the framework</h2>
+            <p>WIM leaves the underlying reasoning model replaceable and surrounds it with maintained state, receipts, authority, and revision. Retrieval systems, graphs, databases, model training, and agent frameworks may participate in an implementation; the framework is defined by the governed relationships among evidence, World state, work, outcomes, and revision.</p>
+            <p>Conversational memory and retrieval can preserve useful material. WIM focuses on continuity across typed records, temporal boundaries, source lineage, contradiction, revocation, and outcome-linked work episodes. That structure creates costs in storage, retrieval, governance, and maintenance that the research program must justify empirically.</p>
+            <p>WIM does not claim to originate persistent memory, continual learning, retrieval, world modeling, provenance, or learning from feedback. Its research question is whether these and related mechanisms can be organized into a governed, temporally reconstructable World whose validated experience improves subsequent work while remaining independent of the reasoning model. The related-work review must determine where this framing inherits, combines, or differs from prior systems before any narrower contribution or novelty claim is made.</p>
+            <p>Authority remains explicit. Confidence remains a judgment rather than a fact. Private experience stays within its governed scope. Simulation can generate hypotheses and stress cases, while external reality supplies the evidence required for validation. Software tests establish behavior covered by those tests; scientific claims require experiments designed for that purpose.</p>
+          </section>
+
+          <section class="paper-section related-work-blocker" id="related-work">
+            <h2>Related work review required before publication</h2>
+            <p>The canonical WIM record does not yet contain an adequate reviewed prior-art analysis. This draft therefore does not claim novelty and does not fabricate a literature review from model memory.</p>
+            <p>A dedicated review must cover agent and long-term memory systems—including Reflexion, Generative Agents, and Voyager—alongside continual learning, knowledge representation, temporal knowledge graphs and databases, event sourcing, retrieval-augmented generation, world models, organizational memory, causal reasoning, reinforcement learning, prediction and calibration, provenance, and human-in-the-loop decision systems.</p>
+            <p>The review must identify where WIM adopts established ideas, where it combines them, which distinctions are specific design choices, and which claims require comparative evidence. Until that work is completed with real citations, this section is a publication blocker.</p>
+          </section>
+
+          <section class="paper-section" id="hypotheses">
+            <p class="section-number">10</p>
+            <h2>The research hypotheses</h2>
+            <p class="claim-class"><span>Hypothesis — not established</span></p>
+            <p>The central hypothesis is that, for some defined tasks, a maintained World containing evidence-backed state and validated experience will improve future work—or preserve its quality with lower context cost—relative to an appropriate stateless, raw-source, or snapshot baseline.</p>
+            <ol class="hypothesis-list">
+              <li><strong>H1 — Task quality or efficiency.</strong> Bounded WIM context may improve task quality or preserve quality with fewer context tokens than an equivalent raw snapshot.</li>
+              <li><strong>H2 — Historical reproducibility.</strong> Explicit temporal cutoffs and receipts may make historical evaluation more reproducible.</li>
+              <li><strong>H3 — Evidence independence.</strong> Provenance-derived independence groups may reduce false confidence caused by duplicated or derived sources.</li>
+              <li><strong>H4 — Longitudinal calibration.</strong> Outcome-linked predictions may improve measured calibration when a valid learning policy is applied over time.</li>
+              <li><strong>H5 — Complexity may not pay.</strong> Some tasks will not benefit enough to justify WIM’s storage, retrieval, governance, and maintenance costs.</li>
+              <li><strong>H6 — Experience accumulation.</strong> Under defined conditions, a system operating over a maintained World may improve as validated experience accumulates, even when the underlying reasoner remains fixed.</li>
+              <li><strong>H7 — Simpler alternatives.</strong> A simpler retrieval, memory, reflection, or continual-learning architecture may capture the same benefit at lower complexity.</li>
+            </ol>
+            <p>H6 concerns the measured trajectory across accumulated, validated experiences rather than performance at a single benchmark point. It does not predict that the trajectory will rise. It may remain flat, plateau, reverse, or vary by task and World.</p>
+            <p>These hypotheses allow unfavorable outcomes. Maintained state may become stale, noisy, expensive, or overfit to one World. Retrieval from source material may equal or outperform maintenance. Lessons may fail to transfer, and accumulated history may reduce performance. Evidence for those conditions would narrow or reject the relevant claim rather than count as a failure to tell the WIM story.</p>
+          </section>
+
+          <section class="paper-section" id="experimental-program">
+            <p class="section-number">11</p>
+            <h2>Experimental program</h2>
+            <p>The research progression begins with a reproducible reference implementation. It then moves to bounded historical data with explicit rights, provenance, and temporal manifests; comparisons against named baselines; longitudinal learning; transfer and generalization; and, later, simulation work whose outputs remain separate from real-world evidence.</p>
+            <ol class="program-sequence">
+              <li><strong>Reproducible implementation.</strong> Establish that the exact system can install, build, replay, and produce declared digests without unexplained local state.</li>
+              <li><strong>Bounded historical reality.</strong> Use permitted, versioned software-project data with discovery, validation, and holdout boundaries and no future leakage.</li>
+              <li><strong>Temporal comparison.</strong> Compare raw or snapshot context, retrieval without maintained WorldState, WIM without Lessons, and WIM with eligible Lessons.</li>
+              <li><strong>Longitudinal learning.</strong> Resolve predictions and outcomes over time and measure whether governed experience changes later performance.</li>
+              <li><strong>Transfer and generalization.</strong> Test which lessons remain useful across tasks, time periods, or Worlds and which must remain local.</li>
+              <li><strong>Simulation research.</strong> Generate bounded hypotheses and stress cases only after a real-world validation path is defined.</li>
+            </ol>
+            <p>Initial comparisons should hold the underlying reasoner fixed so that a measured difference can be attributed more clearly to the surrounding system rather than to a model change. That methodological choice remains subject to protocol approval and external citation review. Later experiments can test whether any effect survives a change in reasoner.</p>
+            <p>Every material experiment requires a frozen protocol before final results are inspected. The protocol must declare its question, hypotheses, data and rights basis, temporal cutoff, baselines, metrics, failure criteria, confounders, code and model versions, and prohibited information. Failed, null, contradicted, and leakage-invalidated results remain in the record.</p>
+          </section>
+
+          <section class="paper-section current-status-section" id="current-status">
+            <p class="section-number">12</p>
+            <h2>Current status</h2>
+            <p class="status-as-of">As of <time datetime="2026-09-22">22 September 2026</time></p>
+            <p class="claim-class"><span>Engineering evidence — not scientific validation</span></p>
+            <p>WIM Specification v1.0 and the Trust Invariants have been adopted. A reference implementation exists and has substantial internal engineering verification, including deterministic fixtures, build and package checks, and a remotely retrievable review checkpoint.</p>
+            <p>The implementation has not completed its assurance process. Fresh Red Team Review 03 ended <strong>incomplete, with no determination</strong>, when its execution environment stopped before the adversarial phase was completed. It was neither a pass nor a fail. Independent audit and candidate certification therefore remain closed.</p>
+            <p>A bounded private-World integration dogfood passed its exercised local engineering acceptance checks after recorded corrections. This is engineering evidence only; it does not change the implementation’s assurance status, establish research readiness, or execute the first proposed experiment.</p>
+            <p>A first experiment protocol has been drafted, but it is not approved, preregistered, frozen, or executed. Its proposed data source, reasoner, manifests, rights review, and research-readiness gate remain unresolved. The draft contains no result.</p>
+            <p>No serious real-world experiment has established WIM’s central performance hypotheses. The existing synthetic benchmark is an engineering harness and is not evidence of real-world effectiveness. There is currently no WIM v1.0 scientific result to announce.</p>
+          </section>
+
+          <section class="paper-section" id="open-questions">
+            <p class="section-number">13</p>
+            <h2>Open questions</h2>
+            <ul class="open-question-list">
+              <li>When does maintained World state outperform reconstruction from source material?</li>
+              <li>How much validated experience is required before measurable learning appears?</li>
+              <li>What learning curve, if any, appears as validated experience accumulates while the reasoner remains fixed?</li>
+              <li>Which lessons transfer between Worlds, and which must remain local?</li>
+              <li>When does accumulated history become harmful rather than useful?</li>
+              <li>How should stale knowledge decay, be narrowed, or be superseded without erasing history?</li>
+              <li>What is the operational and cognitive cost of maintaining persistent World state?</li>
+              <li>How should causal attribution be bounded when an Outcome follows a Decision or Action?</li>
+              <li>Can any measured improvement survive changes in the underlying reasoning model?</li>
+              <li>Which trust properties are necessary for an experiment to be interpretable, and which are release concerns rather than research-validity concerns?</li>
+            </ul>
+          </section>
+
+          <section class="paper-section paper-conclusion" id="conclusion">
+            <h2>Conclusion</h2>
+            <p>WIM proposes an architecture and research program for investigating persistent, evidence-backed machine intelligence. Its contribution at this stage is a defined framework: bounded Worlds, explicit evidence and time semantics, outcome-linked work episodes, governed lesson lifecycle, and trust requirements that separate canonical history from replaceable reasoning models.</p>
+            <p>The framework’s usefulness remains an empirical question. Its next durable contribution must be a reproducible implementation, a defensible experiment, and a record that allows reality to support, narrow, or reject the hypotheses.</p>
+            <blockquote class="closing-question">
+              <p>Many AI workflows preserve conversations and reconstruct context for each task. WIM asks whether machine intelligence should instead maintain an evidence-backed account of the changing reality it is meant to reason about—and whether doing so can survive empirical test.</p>
+            </blockquote>
+            <p class="final-question">How should AI learn from experience?</p>
+          </section>
+
+          <section class="paper-section citation-review-note" id="citation-review">
+            <h2>Citation and review note</h2>
+            <p>This local draft is derived from the canonical WIM Specification v1.0 and approved governance and research records. It contains no completed external literature review. Stable public citations, formal authorship, and related-work analysis must be resolved before publication.</p>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links"><a href="/publications/">Publications</a><a href="/research-roadmap/">Research</a><a href="/governance/">Governance</a></div>
+    <span>Draft · Working Paper 001</span>
+  </footer>
+</body>
+</html>
